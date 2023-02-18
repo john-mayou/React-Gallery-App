@@ -4,6 +4,7 @@ import "./GalleryItem.css";
 
 function GalleryItem({ photo, getPhotos, photoList }) {
 	const { id, path, description, likes } = photo;
+	console.log(id);
 	const [descriptionToggle, setDescriptionToggle] = useState(true);
 
 	const togglePhoto = () => {
@@ -20,9 +21,7 @@ function GalleryItem({ photo, getPhotos, photoList }) {
 		);
 	};
 
-	const handleAddLike = (e) => {
-		const id = Number(e.target.value);
-
+	const handleAddLike = (id) => {
 		const currentLikes = photoList.find((photo) => photo.id === id).likes;
 
 		axios
@@ -35,9 +34,7 @@ function GalleryItem({ photo, getPhotos, photoList }) {
 			});
 	};
 
-	const handleDeletePhoto = (e) => {
-		const id = Number(e.target.value);
-
+	const handleDeletePhoto = (id) => {
 		axios
 			.delete(`/gallery/${id}`)
 			.then(() => {
@@ -52,19 +49,14 @@ function GalleryItem({ photo, getPhotos, photoList }) {
 		<article className="card">
 			{renderPhoto()}
 			<div className="card-btns__box">
-				<button
-					className="like-btn"
-					value={id}
-					onClick={(e) => handleAddLike(e)}
-				>
+				<button className="like-btn" onClick={() => handleAddLike(id)}>
 					<i className="fa-regular fa-heart"></i>
 					<span>Like</span>
 					{likes}
 				</button>
 				<button
 					className="delete-btn"
-					value={id}
-					onClick={(e) => handleDeletePhoto(e)}
+					onClick={() => handleDeletePhoto(id)}
 				>
 					<i className="fa-regular fa-trash-can"></i>Delete
 				</button>
