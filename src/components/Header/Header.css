@@ -1,0 +1,13 @@
+.app-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 75px;
+	width: 100%;
+	background-color: rgb(55, 85, 205);
+}
+
+.app-title {
+	font-size: 4rem;
+	color: #fff;
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "./GalleryItem.css";
 
 function GalleryItem({ photo, getPhotos, photoList }) {
 	const { id, path, description, likes } = photo;
@@ -50,13 +51,24 @@ function GalleryItem({ photo, getPhotos, photoList }) {
 	return (
 		<article className="card">
 			{renderPhoto()}
-			<button value={id} onClick={(e) => handleAddLike(e)}>
-				Love It!
-			</button>
-			<button value={id} onClick={(e) => handleDeletePhoto(e)}>
-				Delete
-			</button>
-			<p>{likes} people love this!</p>
+			<div className="card-btns__box">
+				<button
+					className="like-btn"
+					value={id}
+					onClick={(e) => handleAddLike(e)}
+				>
+					<i className="fa-regular fa-heart"></i>
+					<span>Like</span>
+					{likes}
+				</button>
+				<button
+					className="delete-btn"
+					value={id}
+					onClick={(e) => handleDeletePhoto(e)}
+				>
+					<i className="fa-regular fa-trash-can"></i>Delete
+				</button>
+			</div>
 		</article>
 	);
 }

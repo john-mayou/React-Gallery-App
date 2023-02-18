@@ -26,7 +26,7 @@ function App() {
 	};
 
 	return (
-		<div className="App">
+		<div className="app">
 			<Header />
 			<GalleryForm getPhotos={getPhotos} />
 			<GalleryList getPhotos={getPhotos} photoList={photoList} />

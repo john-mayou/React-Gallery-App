@@ -1,0 +1,38 @@
+.card {
+	min-width: 200px;
+	padding: 1rem;
+	background-color: rgba(195, 202, 205, 0.5);
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+}
+
+.card-img {
+	border-radius: 5px;
+}
+
+.card-description {
+}
+
+.card-btns__box {
+	display: flex;
+	justify-content: space-between;
+}
+
+.like-btn {
+	padding: 1rem;
+}
+
+.like-btn span {
+	margin: 0 5px;
+}
+
+.delete-btn {
+	padding: 1rem;
+}
+
+.fa-trash-can {
+	margin-right: 5px;
+}

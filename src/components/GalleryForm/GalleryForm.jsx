@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "./GalleryForm.css";
 
 function GalleryForm({ getPhotos }) {
 	const [pathInput, setPathInput] = useState("");
@@ -27,20 +28,26 @@ function GalleryForm({ getPhotos }) {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<input
-				type="type"
-				placeholder="Path"
-				value={pathInput}
-				onChange={(e) => setPathInput(e.target.value)}
-			></input>
-			<input
-				type="type"
-				placeholder="Description"
-				value={descriptionInput}
-				onChange={(e) => setDescriptionInput(e.target.value)}
-			></input>
-			<button type="submit">Add Photo</button>
+		<form onSubmit={handleSubmit} className="form">
+			<div className="input__box">
+				<input
+					className="form-input"
+					type="type"
+					placeholder="Path"
+					value={pathInput}
+					onChange={(e) => setPathInput(e.target.value)}
+				></input>
+				<input
+					className="form-input"
+					type="type"
+					placeholder="Description"
+					value={descriptionInput}
+					onChange={(e) => setDescriptionInput(e.target.value)}
+				></input>
+			</div>
+			<button type="submit" className="add-btn">
+				Add Photo
+			</button>
 		</form>
 	);
 }
