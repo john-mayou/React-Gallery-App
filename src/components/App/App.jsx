@@ -10,6 +10,7 @@ import GalleryList from "../GalleryList/GalleryList";
 function App() {
 	const [photoList, setPhotoList] = useState([]);
 
+	// on page load
 	useEffect(() => {
 		getPhotos();
 	}, []);
@@ -18,7 +19,7 @@ function App() {
 		axios
 			.get("/gallery")
 			.then((response) => {
-				setPhotoList(response.data);
+				setPhotoList(response.data); // set local state
 			})
 			.catch((error) => {
 				console.log("Error GET /gallery", error);

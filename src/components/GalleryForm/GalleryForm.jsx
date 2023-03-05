@@ -3,22 +3,25 @@ import axios from "axios";
 import "./GalleryForm.css";
 
 function GalleryForm({ getPhotos }) {
-	const [pathInput, setPathInput] = useState("");
-	const [descriptionInput, setDescriptionInput] = useState("");
+	const [pathInput, setPathInput] = useState(""); // for new photo
+	const [descriptionInput, setDescriptionInput] = useState(""); // for new photo
 
+	// submit new photo to gallery
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
 		const newPhoto = {
 			path: pathInput,
 			description: descriptionInput,
-			likes: 0,
+			likes: 0, // initial state
 		};
 
 		axios
 			.post("/gallery", newPhoto)
 			.then(() => {
 				getPhotos();
+
+				// reset inputs
 				setPathInput("");
 				setDescriptionInput("");
 			})

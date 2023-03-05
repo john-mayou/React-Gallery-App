@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
+// GET /
 router.get("/", (req, res) => {
 	const queryText = `SELECT * FROM photos ORDER BY id;`;
 
@@ -16,6 +17,7 @@ router.get("/", (req, res) => {
 		});
 });
 
+// POST /
 router.post("/", (req, res) => {
 	const queryText = `
         INSERT INTO photos ("path", "description", "likes")
@@ -34,6 +36,7 @@ router.post("/", (req, res) => {
 		});
 });
 
+// PUT /like/:id
 router.put("/like/:id", (req, res) => {
 	const queryText = `UPDATE photos SET likes=$1 WHERE id=$2;`;
 
@@ -47,6 +50,7 @@ router.put("/like/:id", (req, res) => {
 		});
 });
 
+// DELETE /:id
 router.delete("/:id", (req, res) => {
 	const queryText = `DELETE FROM photos WHERE id=$1;`;
 

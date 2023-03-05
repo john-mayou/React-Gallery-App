@@ -3,14 +3,14 @@ import axios from "axios";
 import "./GalleryItem.css";
 
 function GalleryItem({ photo, getPhotos, photoList }) {
-	const { id, path, description, likes } = photo;
-	console.log(id);
-	const [descriptionToggle, setDescriptionToggle] = useState(true);
+	const { id, path, description, likes } = photo; // deconstructing
+	const [descriptionToggle, setDescriptionToggle] = useState(true); // toggle showing description and image
 
 	const togglePhoto = () => {
-		setDescriptionToggle(!descriptionToggle);
+		setDescriptionToggle(!descriptionToggle); // toggle boolean
 	};
 
+	// conditional rendering based on descriptionToggle boolean value
 	const renderPhoto = () => {
 		return descriptionToggle ? (
 			<img src={path} className="card-img" onClick={togglePhoto} />
@@ -21,11 +21,12 @@ function GalleryItem({ photo, getPhotos, photoList }) {
 		);
 	};
 
+	// sends put request to increment likes of photo
 	const handleAddLike = (id) => {
 		const currentLikes = photoList.find((photo) => photo.id === id).likes;
 
 		axios
-			.put(`/gallery/like/${id}`, { newLikeCount: currentLikes + 1 })
+			.put(`/gallery/like/${id}`, { newLikeCount: currentLikes + 1 }) // increment
 			.then(() => {
 				getPhotos();
 			})
@@ -34,6 +35,7 @@ function GalleryItem({ photo, getPhotos, photoList }) {
 			});
 	};
 
+	// sends delete request by id query param
 	const handleDeletePhoto = (id) => {
 		axios
 			.delete(`/gallery/${id}`)
