@@ -1,9 +1,28 @@
-# Project Name
+## Project Objective
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Use the fundamentals of React to build a gallery app that displays photos.
+Allow a user to see the descption when the photo is clicked, and add likes to photos the like
 
-## Description
+## Features
 
-Your project description goes here. What problem did you solve? How did you solve it?
+A user can:
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+-   Add a photo to the gallery
+-   Toggle between seeing the picture and description
+-   "Like" photos the enjoy
+
+## What I Learned
+
+-   How to break up a project into components to keep the code DRY
+-   Conditional rendering to enhance the user experience
+-   JSX syntax "gotchas" which are part of learning a new language ("class" => "className")
+
+## How To Run The Project
+
+-   Database name: `react_gallery`
+-   Data: `database.sql`
+-   Run `npm install`
+-   Run `npm run server`
+-   Run `npm run client`
+
+![Screenshot](AppScreenshot.png)
